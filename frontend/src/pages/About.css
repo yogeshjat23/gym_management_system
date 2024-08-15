@@ -1,0 +1,39 @@
+
+.about-container {
+    background-image: url('../assets/gym1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 100px;
+   
+  }
+  
+  
+  .about-content {
+ 
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 100%;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .about-content h1 {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 50px;
+  }
+  
+  .about-content p {
+    margin-bottom: 15px;
+    color: white;
+    line-height: 1.6;
+    font-size: 30px;
+  }
+  
