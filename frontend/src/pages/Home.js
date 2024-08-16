@@ -7,21 +7,21 @@ import './Home.css';
 
 
 const slotAssignments = {
-  'slot1': ['22bec116', '22bec115'],
-  'slot2': ['22bec114', '22bec113'],
-  'slot3': ['22bee005', '22bee006'],
-  'slot4': ['roll7', 'roll8'],
-  'slot5': ['22bec112', '22bec111'],
-  'slot6': ['roll11', 'roll12'],
-  'slot7': ['roll13', 'roll14'],
-  'slot8': ['roll15', 'roll16'],
+  'slot1': [],
+  'slot2': [],
+  'slot3': [],
+  'slot4': [],
+  'slot5': [],
+  'slot6': [],
+  'slot7': [],
+  'slot8': [],
 };
 
 const slots = {
-  'slot1': { start: '11:00', end: '12:00' },
+  'slot1': { start: '14:00', end: '15:00' },
   'slot2': { start: '06:00', end: '07:00' },
-  'slot3': { start: '07:00', end: '08:00' },
-  'slot4': { start: '08:00', end: '09:00' },
+  'slot3': { start: '15:00', end: '16:00' },
+  'slot4': { start: '16:00', end: '17:00' },
   'slot5': { start: '17:00', end: '18:00' },
   'slot6': { start: '18:00', end: '19:00' },
   'slot7': { start: '19:00', end: '20:00' },
@@ -41,10 +41,12 @@ const HomePage = () => {
      .then((response) => {
        console.log(response.data);
        setMessage(response.data.message);
+       alert(response.data.message);
       })
      .catch((error) => {
         console.log(error);
         setMessage(error.response.data.message);
+        alert(error.response.data.message);   
       });
   }
 
@@ -96,15 +98,20 @@ const HomePage = () => {
           };
           setCheckins(newCheckins);
           setMessage(`Checked in at ${currentTime} for slot ${assignedSlot}`);
+          window.alert(`Checked in at ${currentTime} for slot ${assignedSlot}`); // Show popup alert
           setRollNo(''); // Clear input field
         } else {
           setMessage('Already checked in');
+          window.alert('Already checked in'); 
         }
       } else {
         setMessage('Not the correct time for this slot');
+        window.alert('Not the correct time for this slot'); // Show popup alert
       }
     } else {
       setMessage('Not your slot');
+     
+      window.alert('Not your slot'); // Show popup alert
     }
   };
 
@@ -148,6 +155,8 @@ const HomePage = () => {
       {canCheckOut && <button onClick={handleCheckOut}>Check Out</button>} */}
       {rollNo && <button onClick={clickHandler} >checkIn/Out</button>}
       <p>{message}</p>
+      
+      
       <nav>
         <Link to="/dashboard">Go to Dashboard</Link>
       </nav>

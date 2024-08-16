@@ -8,11 +8,13 @@ const About = () => {
       <div className="about-content">
         <h1>About Us</h1>
         <p>
-          Welcome to our website! 
+          Welcome to NIT Hamirpur GYM 
           
         </p>
         <p>
           Our team 
+          
+
         </p>
         <p>
           Thank you for choosing us
