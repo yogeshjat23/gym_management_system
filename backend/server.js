@@ -8,17 +8,18 @@ const studentsRoute = require('./routes/students');
 const cors = require('cors');
 const cron = require('node-cron');
 const Checkin = require('./models/Checkin'); // Assuming you have a Checkin model
+require('dotenv').config();
 
 
 const app = express();
-const PORT = 5000;
-
+const PORT = process.env.PORT;
+const mongoURL = process.env.MONGO_URI
 
 app.use(bodyParser.json());
 app.use(cors());
 
 
-mongoose.connect('mongodb://localhost:27017/gym', {
+mongoose.connect(mongoURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
