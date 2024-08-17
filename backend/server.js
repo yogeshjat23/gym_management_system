@@ -6,6 +6,8 @@ const registrationRoute = require('./routes/registration');
 const checkinRoute = require('./routes/checkin');
 const studentsRoute = require('./routes/students');
 const cors = require('cors');
+const cron = require('node-cron');
+const Checkin = require('./models/Checkin'); // Assuming you have a Checkin model
 
 
 const app = express();
@@ -30,6 +32,17 @@ mongoose.connect('mongodb://localhost:27017/gym', {
 app.use('/api', registrationRoute);
 app.use('/api', checkinRoute);
 app.use('/api', studentsRoute);
+
+
+
+cron.schedule('0 0 * * *', async () => {
+  try {
+    await Checkin.deleteMany({}); // Delete all check-ins
+    console.log('All check-ins deleted successfully');
+  } catch (error) {
+    console.error('Error deleting check-ins:', error);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

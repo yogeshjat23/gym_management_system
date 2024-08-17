@@ -11,7 +11,9 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    const existingStudent = await Student.findOne({ rollNo });
+    const existingStudent = await Student.findOne({ 
+      rollNo : {$regex: new RegExp(rollNo, 'i')}
+     });
     if (existingStudent) {
       return res.status(400).json({ message: 'Already registered' });
     }

@@ -17,13 +17,13 @@ const Registration = () => {
 
   const slots = {
     'slot1': { start: '5:00', end: '6:00', capacity: 50 },
-    'slot2': { start: '15:00', end: '16:00', capacity: 50 },
-    'slot3': { start: '16:00', end: '17:00', capacity: 50 },
-    'slot4': { start: '17:00', end: '18:00', capacity: 50 },
-    'slot5': { start: '6:00', end: '7:00', capacity: 50 },
+    'slot2': { start: '06:00', end: '07:00', capacity: 50 },
+    'slot3': { start: '07:00', end: '08:00', capacity: 50 },
+    'slot4': { start: '16:00', end: '17:00', capacity: 50 },
+    'slot5': { start: '17:00', end: '18:00', capacity: 50 },
     'slot6': { start: '18:00', end: '19:00', capacity: 50 },
     'slot7': { start: '19:00', end: '20:00', capacity: 50 },
-    'slot8': { start: '20:00', end: '21:00', capacity: 50 },
+    'slot8': { start: '14:00', end: '16:00', capacity: 50 },
   };
 
   async function register(name, rollNo, hostel, year, selectedSlot){
