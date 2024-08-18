@@ -4,14 +4,14 @@ const Student = require("../models/Student");
 const Checkin = require("../models/Checkin");
 
 const slots = {
-  'slot1': { start: '20:00', end: '21:00' },
+  'slot1': { start: '05:00', end: '06:00' },
   'slot2': { start: '06:00', end: '07:00' },
-  'slot3': { start: '15:00', end: '16:00' },
-  'slot4': { start: '16:00', end: '17:00' },
+  'slot3': { start: '07:00', end: '08:00' },
+  'slot4': { start: '08:00', end: '09:00' },
   'slot5': { start: '17:00', end: '18:00' },
   'slot6': { start: '18:00', end: '19:00' },
   'slot7': { start: '19:00', end: '20:00' },
-  'slot8': { start: '14:00', end: '16:00' },
+  'slot8': { start: '20=1:00', end: '22:00' },
 };
 
 

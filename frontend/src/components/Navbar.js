@@ -1,32 +1,40 @@
-
+// src/components/Navbar.js
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './Navbar.css';
-import Logo from '../assets/nitLogo.png'
+import Logo from '../assets/nitLogo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { isAuthenticated, logout } = useAuth();
 
   const toggleMenu = () => setIsOpen(!isOpen);
- 
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <a href="/" className="navbar-logo">
-        <img  src={Logo} alt="Logo" className="navbar-logo" /> </a>
-        <h1>राष्ट्रीय प्रौद्योगिकी संस्थान हमीरपुर <br/>National Institute of Technology Hamirpur </h1>
-        
+          <img src={Logo} alt="Logo" className="navbar-logo" />
+        </a>
+        <h1>
+          राष्ट्रीय प्रौद्योगिकी संस्थान हमीरपुर <br /> National Institute of Technology Hamirpur
+        </h1>
+
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-          <a href="/" className="navbar-item">Home</a>
-          <a href="/dashboard" className="navbar-item">Dashboard</a>
-       
-
-          <a href="/registration" className="navbar-item">Register</a>
-          <a href="/about" className="navbar-item">About</a>
-          
-
+          <Link to="/" className="navbar-item">Home</Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/dashboard" className="navbar-item">Dashboard</Link>
+              <Link to="/registration" className="navbar-item">Register</Link>
+              <Link to="/about" className="navbar-item" >About</Link>
+              <div onClick={logout} className="navbar-item logout" >Logout</div>
+            </>
+          ) : (
+            <>
+             <Link to="/login" className="navbar-item logout " >Login</Link>
+            </>
+          )}
         </div>
         <div className="navbar-toggle" onClick={toggleMenu}>
           {isOpen ? (

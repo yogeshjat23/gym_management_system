@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useCheckin } from '../contexts/CheckinContext';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast';
 
 import './Home.css'; 
 
@@ -18,14 +19,14 @@ const slotAssignments = {
 };
 
 const slots = {
-  'slot1': { start: '20:00', end: '21:00' },
+  'slot1': { start: '05:00', end: '06:00' },
   'slot2': { start: '06:00', end: '07:00' },
-  'slot3': { start: '15:00', end: '16:00' },
-  'slot4': { start: '16:00', end: '17:00' },
+  'slot3': { start: '07:00', end: '08:00' },
+  'slot4': { start: '08:00', end: '09:00' },
   'slot5': { start: '17:00', end: '18:00' },
   'slot6': { start: '18:00', end: '19:00' },
   'slot7': { start: '19:00', end: '20:00' },
-  'slot8': { start: '14:00', end: '16:00' },
+  'slot8': { start: '21:00', end: '22:00' },
 };
 
 const HomePage = () => {
@@ -41,12 +42,14 @@ const HomePage = () => {
      .then((response) => {
        console.log(response.data);
        setMessage(response.data.message);
-       alert(response.data.message);
+      //  alert(response.data.message);
+       toast.success(response.data.message);
       })
      .catch((error) => {
         console.log(error);
         setMessage(error.response.data.message);
-        alert(error.response.data.message);   
+        // alert(error.response.data.message);   
+        toast.error(error.response.data.message);
       });
   }
 
@@ -102,7 +105,7 @@ const HomePage = () => {
         placeholder="Enter Roll Number"
       />
       
-      {rollNo && <button onClick={clickHandler} >Check-In/Out</button>}
+      { <button onClick={clickHandler} >Check-In/Out</button>}
       <p>{message}</p>
       
     

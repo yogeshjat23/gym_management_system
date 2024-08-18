@@ -11,7 +11,10 @@
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
+  .logout{
+    border: solid 2px white;
+    border-radius: 10px;
+  }
   .navbar-container {
     display: flex;
     justify-content: space-between;

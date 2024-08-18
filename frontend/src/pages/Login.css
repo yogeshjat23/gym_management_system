@@ -1,0 +1,66 @@
+
+
+.log-container {
+  background-color: rgba(255, 255, 255, 0.8); 
+  
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 700px;
+  margin: 200px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  height: 300px;
+}
+
+
+.log-container h1 {
+  margin-bottom: 20px;
+  color: #333; 
+}
+
+.log-container input {
+  padding: 10px;
+margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 90%;
+  height: 30px;
+  font-size: 20px;
+}
+
+
+.log-container button {
+  display: block; 
+  
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-left: 40%;
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.log-container button:hover {
+  background-color: #0056b3; 
+}
+
+.log-container p {
+  margin-top: 20px;
+  color: #333;
+}
+
+.log-container nav a {
+  
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.log-container nav a:hover {
+  text-decoration: underline;
+}

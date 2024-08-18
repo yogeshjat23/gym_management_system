@@ -1,9 +1,6 @@
 
 .registration-container {
 
-  
-
-
   width: 100%;
   height: 100vh; 
   display: flex;
@@ -25,15 +22,18 @@
 .registration-container input
  {
   display: block;
-  width: 300px;
+  width: 500px;
+  height: 30px;
   padding: 10px;
+  font-size: 20px;
   margin-bottom: 15px;
   border: 1px solid #ced4da;
   border-radius: 5px;
 }
 .registration-container select{
     display: block;
-  width: 320px;
+  width: 520px;
+  font-size: 20px;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ced4da;
@@ -41,7 +41,8 @@
 }
 
 .registration-container button {
-  width:100px ;
+  width:150px ;
+  font-size: 20px;
   padding: 10px;
   background-color: #007bff;
   color: white;

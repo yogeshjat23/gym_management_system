@@ -1,9 +1,11 @@
 // src/pages/Registration.js
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useCheckin } from '../contexts/CheckinContext';
 import { useTranslation } from 'react-i18next';
 import './Registration.css';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Registration = () => {
   const { t } = useTranslation();
@@ -13,17 +15,17 @@ const Registration = () => {
   const [hostel, setHostel] = useState('');
   const [year, setYear] = useState('');
   const [selectedSlot, setSelectedSlot] = useState('');
-  const [message, setMessage] = useState('');
+  const [setMessage] = useState('');
 
   const slots = {
-    'slot1': { start: '5:00', end: '6:00', capacity: 50 },
+    'slot1': { start: '05:00', end: '6:00', capacity: 50 },
     'slot2': { start: '06:00', end: '07:00', capacity: 50 },
     'slot3': { start: '07:00', end: '08:00', capacity: 50 },
-    'slot4': { start: '16:00', end: '17:00', capacity: 50 },
+    'slot4': { start: '08:00', end: '09:00', capacity: 50 },
     'slot5': { start: '17:00', end: '18:00', capacity: 50 },
     'slot6': { start: '18:00', end: '19:00', capacity: 50 },
     'slot7': { start: '19:00', end: '20:00', capacity: 50 },
-    'slot8': { start: '14:00', end: '16:00', capacity: 50 },
+    'slot8': { start: '21:00', end: '22:00', capacity: 50 },
   };
 
   async function register(name, rollNo, hostel, year, selectedSlot){
@@ -57,12 +59,14 @@ const Registration = () => {
 
   const handleRegistration = () => {
     if (!name || !rollNo || !hostel || !year || !selectedSlot) {
-      setMessage(t('Please fill all fields'));
+    
+      toast.error('Please fill all fields');
       return;
     }
 
     if (checkins[rollNo]) {
-      setMessage(t('Already registered')); 
+    
+      toast.error('Already registered');
     } else {
       register(name, rollNo, hostel, year, selectedSlot);
       const newCheckins = {
@@ -70,7 +74,8 @@ const Registration = () => {
         [rollNo]: { name, hostel, year, slot: selectedSlot, checkIn: null, checkOut: null },
       };
       setCheckins(newCheckins);
-      setMessage(t('Registration successful')); 
+     
+      toast.success('Registration successful');
       
       // Clear the inputs
       setName('');
@@ -119,7 +124,7 @@ const Registration = () => {
         ))}
       </select>
       <button onClick={handleRegistration}>{t('Register')}</button>
-      <p>{message}</p>
+      
     </div>
   );
 };
