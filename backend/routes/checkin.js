@@ -11,7 +11,7 @@ const slots = {
   'slot5': { start: '17:00', end: '18:00' },
   'slot6': { start: '18:00', end: '19:00' },
   'slot7': { start: '19:00', end: '20:00' },
-  'slot8': { start: '20=1:00', end: '22:00' },
+  'slot8': { start: '21:00', end: '22:00' },
 };
 
 
@@ -53,6 +53,18 @@ const isValidSlot = (slot) => {
 };
 
 
+const updateStudentCount = async (rollNo) => {
+  try {
+    await Student.findOneAndUpdate(
+      { rollNo: {$regex: new RegExp(rollNo, 'i')} },
+      { $inc: { count: 1 } }
+    );
+  } catch (err) {
+    console.error("Error updating student count:", err.message);
+  }
+};
+
+
 router.post("/checkin", async (req, res) => {
   try {
     const { rollNo } = req.body;
@@ -84,6 +96,7 @@ router.post("/checkin", async (req, res) => {
         slot: student.slot,
       });
       await newCheckin.save();
+      await updateStudentCount(rollNo);
       return res.status(200).json({ message: "Check-in successful", checkin: newCheckin });
     } else if (checkinRecord.checkIn && !checkinRecord.checkOut) {
       checkinRecord.checkOut = formatDate(getCurrentTimeInIST());

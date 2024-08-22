@@ -1,4 +1,4 @@
-// src/pages/Login.js
+
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import './Login.css'; 
@@ -12,12 +12,12 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const handleLogin = (e) => {
     e.preventDefault();
-    // Implement authentication logic here (e.g., verify username and password)
+   
     if (username === HARD_CODED_USERNAME && password === HARD_CODED_PASSWORD) {
-      // Handle successful login (e.g., redirect or update state)
+   
       login();
      
-      // Call your login function or redirect here
+      
     } else {
       setMessage(('Invalid username or password.'));
       

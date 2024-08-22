@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useCheckin } from '../contexts/CheckinContext';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { } from 'react-hot-toast';
 
 import './Home.css'; 
 
@@ -35,20 +35,20 @@ const HomePage = () => {
   const [rollNo, setRollNo] = useState('');
   const [message, setMessage] = useState('');
 
-  // send request to server
+  
 
   async function checkin(rollNo) {
     await axios.post("http://localhost:5000/api/checkin", {rollNo})
      .then((response) => {
        console.log(response.data);
        setMessage(response.data.message);
-      //  alert(response.data.message);
+      
        toast.success(response.data.message);
       })
      .catch((error) => {
         console.log(error);
         setMessage(error.response.data.message);
-        // alert(error.response.data.message);   
+        
         toast.error(error.response.data.message);
       });
   }
@@ -66,25 +66,7 @@ const HomePage = () => {
 
   
 
-  /*
-
-  const handleCheckOut = () => {
-    const currentTime = formatDate(getCurrentTimeInIST());
-
-    if (checkins[rollNo] && !checkins[rollNo].checkOut) {
-      const newCheckins = {
-        ...checkins,
-        [rollNo]: { ...checkins[rollNo], checkOut: currentTime },
-      };
-      setCheckins(newCheckins);
-      setMessage(`Checked out at ${currentTime}`);
-      setRollNo(''); // Clear input field
-    } else {
-      setMessage('You are not checked in or already checked out');
-    }
-  };*/ 
-
-  // Determine if the user is checked in
+  
   const isCheckedIn = checkins[rollNo] && !checkins[rollNo].checkOut;
   const canCheckIn = !isCheckedIn && rollNo !== '';
   const canCheckOut = isCheckedIn && rollNo !== '';

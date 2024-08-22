@@ -5,7 +5,8 @@ const studentSchema = new mongoose.Schema({
   name: { type: String, required: true },
   hostel: { type: String, required: true },
   year: { type: String, required: true },
-  slot: { type: String, required: true }
+  slot: { type: String, required: true },
+  count:  {type :Number , default:0}
 });
 
 const Student = mongoose.model('Student', studentSchema);
