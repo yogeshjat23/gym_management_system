@@ -11,7 +11,7 @@ const slots = {
   'slot5': { start: '17:00', end: '18:00' },
   'slot6': { start: '18:00', end: '19:00' },
   'slot7': { start: '19:00', end: '20:00' },
-  'slot8': { start: '21:00', end: '22:00' },
+  'slot8': { start: '20:00', end: '21:00' },
 };
 
 

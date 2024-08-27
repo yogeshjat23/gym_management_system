@@ -21,7 +21,7 @@ const slotAssignments = {
 const slots = {
   'slot1': { start: '05:00', end: '06:00' },
   'slot2': { start: '06:00', end: '07:00' },
-  'slot3': { start: '07:00', end: '08:00' },
+  'Slot3': { start: '07:00', end: '08:00' },
   'slot4': { start: '08:00', end: '09:00' },
   'slot5': { start: '17:00', end: '18:00' },
   'slot6': { start: '18:00', end: '19:00' },

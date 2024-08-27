@@ -33,8 +33,35 @@ mongoose.connect(mongoURL, {
   process.exit(); 
 });
 
+/*
 
+app.post('/api/students', async (req, res) => {
+  try {
+    const students = req.body.data;
+    if (!students || !Array.isArray(students)) {
+      return res.status(400).send('Invalid data format');
+    }
 
+    for (const student of students) {
+      // Skip empty rows
+      if (!student[0]) continue;
+
+      const [name, rollNo, year, hostel, slot, count] = student;
+      await Student.updateOne(
+        { rollNo },
+        { $set: { name, hostel, year, slot, count: Number(count) } },
+        { upsert: true } // Create a new document if it doesn't exist
+      );
+    }
+
+    res.status(200).send('Data saved successfully!');
+  } catch (error) {
+    console.error('Error saving data:', error);
+    res.status(500).send('Error saving data');
+  }
+});*/
+
+/*
 app.get('/import', async (req, res) => {
   try {
     const filePath = 'D:/Users/jatyo/Downloads/students.xlsx';
@@ -99,6 +126,7 @@ app.get('/import', async (req, res) => {
     res.status(500).send('Error importing data');
   }
 });
+*/
 
 app.get('/api/students', async (req, res) => {
   try {

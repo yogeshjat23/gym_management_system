@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import './Navbar.css';
 import Logo from '../assets/nitLogo.png';
-
+/*
   const handleImport = async () => {
     try {
       const response = await fetch('http://localhost:5000/import', {
@@ -22,7 +22,7 @@ import Logo from '../assets/nitLogo.png';
       alert('Error during import');
     }
   };
-
+*/
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +48,7 @@ const Navbar = () => {
               <Link to="/registration" className="navbar-item">Register</Link>
               <Link to="/students" className="navbar-item">List</Link>
               <Link to="/about" className="navbar-item" >About</Link>
-              <div onClick={handleImport} className="navbar-item logout" >Import</div>
+             {/* <div onClick={handleImport} className="navbar-item logout" >Import</div> */}
               <div onClick={logout} className="navbar-item logout" >Logout</div>
             </>
           ) : (

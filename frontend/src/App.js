@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import  { Toaster } from 'react-hot-toast';
 import StudentList from './pages/StudentList';
 
+
 const ProtectedRoute = ({ element, ...rest }) => {
   const { isAuthenticated } = useAuth();
   return isAuthenticated ? element : <Navigate to="/login" />;
@@ -25,8 +26,9 @@ const AppRoutes = () => (
     <Route path="/registration" element={<ProtectedRoute element={<Registration />} />} />
     <Route path="/students" element={<ProtectedRoute element={<StudentList />} />} />
     <Route path="/login" element={<Login />} />
+    
   </Routes>
-  
+   
 );
 
 const App = () => (

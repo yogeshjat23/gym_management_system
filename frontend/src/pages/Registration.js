@@ -25,7 +25,7 @@ const Registration = () => {
     'slot5': { start: '17:00', end: '18:00', capacity: 50 },
     'slot6': { start: '18:00', end: '19:00', capacity: 50 },
     'slot7': { start: '19:00', end: '20:00', capacity: 50 },
-    'slot8': { start: '21:00', end: '22:00', capacity: 50 },
+    'slot8': { start: '20:00', end: '21:00', capacity: 50 },
   };
 
   async function register(name, rollNo, hostel, year, selectedSlot){
